@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-time-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-time-app
+  template:
+    metadata:
+      labels:
+        app: sample-time-app
+    spec:
+      containers:
+      - name: sample-time-app
+        image: taytwkim/sample-time-app:v2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

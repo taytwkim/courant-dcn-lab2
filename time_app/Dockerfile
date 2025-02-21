@@ -1,4 +1,4 @@
-FROM python:3.5
+FROM --platform=linux/amd64 python:3.9
 
 RUN apt-get update \
   && apt-get clean \
@@ -8,7 +8,6 @@ RUN apt-get update \
 RUN groupadd -g 799 nyu && \
     useradd -r -u 999 -g nyu nyu
 
-# Set up a working folder and install the pre-reqs
 WORKDIR /app
 
 RUN pip install Flask
